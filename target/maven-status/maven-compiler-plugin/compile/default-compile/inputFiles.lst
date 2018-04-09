@@ -9,6 +9,7 @@ C:\Users\int0348\git\JSF_IoC_Hibernate_SSN\src\main\java\fr\adaming\toulouse\SSN
 C:\Users\int0348\git\JSF_IoC_Hibernate_SSN\src\main\java\fr\adaming\toulouse\SSN\Dao\IClientDao.java
 C:\Users\int0348\git\JSF_IoC_Hibernate_SSN\src\main\java\fr\adaming\toulouse\SSN\model\Administrateur.java
 C:\Users\int0348\git\JSF_IoC_Hibernate_SSN\src\main\java\fr\adaming\toulouse\SSN\service\EnvoyerMail.java
+C:\Users\int0348\git\JSF_IoC_Hibernate_SSN\src\main\java\fr\adaming\toulouse\SSN\Dao\ProduitDaoImp.java
 C:\Users\int0348\git\JSF_IoC_Hibernate_SSN\src\main\java\fr\adaming\toulouse\SSN\Dao\ClientDaoImpl.java
 C:\Users\int0348\git\JSF_IoC_Hibernate_SSN\src\main\java\fr\adaming\toulouse\SSN\model\Produit.java
 C:\Users\int0348\git\JSF_IoC_Hibernate_SSN\src\main\java\fr\adaming\toulouse\SSN\model\Categorie.java
