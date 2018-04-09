@@ -32,7 +32,7 @@
 		<property name="dataSource" ref="dataSourceBean" />
 		<!-- specifier les classes annotées par les annotations jpa LE mappong 
 			Objet relationnelle -->
-		<property name="packagesToScan" value="fr.adaming.toulouse.model"></property>
+		<property name="packagesToScan" value="fr.adaming.toulouse.SSN.model"></property>
 		<!-- declaration des props d'hibernate -->
 		<property name="hibernateProperties">
 			<props>
