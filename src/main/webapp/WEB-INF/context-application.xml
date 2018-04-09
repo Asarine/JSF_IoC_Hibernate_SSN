@@ -15,7 +15,7 @@
 	<context:component-scan base-package="fr.adaming.toulouse" />
 
 	<!-- localiser le fichier ds-info.properties -->
-	<context:property-placeholder location="classpath*:ds-info.properties" />
+	<context:property-placeholder location="classpath*:configuration.properties" />
 	<bean id="dataSourceBean"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<!-- Injection de la props de la connexionl de BD -->
@@ -52,13 +52,5 @@
 
 	<!-- Active la detection des annotation des transaction @Transactional -->
 	<tx:annotation-driven transaction-manager="transactionManagerBean" />
-
-
-</beans>
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-
+	
 </beans>
