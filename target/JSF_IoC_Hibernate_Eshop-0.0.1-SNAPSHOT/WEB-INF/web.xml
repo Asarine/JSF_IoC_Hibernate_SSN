@@ -40,7 +40,7 @@
 
 	<!-- LA page d'accueil -->
 	<welcome-file-list>
-		<welcome-file>login.xhtml</welcome-file>
+		<welcome-file>accueil.xhtml</welcome-file>
 	</welcome-file-list>
 
 

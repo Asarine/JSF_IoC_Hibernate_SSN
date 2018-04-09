@@ -34,9 +34,6 @@ public class LigneCommande implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="pr_id", referencedColumnName="id_pr")
 	private Produit prod;
-
-	@Transient
-	private Panier panier;
 	
 	//Déclaration des constructeurs
 	public LigneCommande() {
@@ -97,14 +94,6 @@ public class LigneCommande implements Serializable{
 		this.prix = prix;
 	}
 
-	public Panier getPanier() {
-		return panier;
-	}
-
-	public void setPanier(Panier panier) {
-		this.panier = panier;
-	}
-	
 //Redéfintion de la méthode toString
 	@Override
 	public String toString() {

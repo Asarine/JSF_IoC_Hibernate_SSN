@@ -1,7 +1,12 @@
 fr\adaming\toulouse\SSN\model\Commande.class
 fr\adaming\toulouse\SSN\model\Client.class
-fr\adaming\toulouse\SSN\model\Panier.class
+fr\adaming\toulouse\SSN\managedBeans\ClientManagedBean.class
 fr\adaming\toulouse\SSN\model\Administrateur.class
-fr\adaming\toulouse\SSN\model\Categorie.class
+fr\adaming\toulouse\SSN\Dao\ClientDaoImpl.class
+fr\adaming\toulouse\SSN\service\IClientService.class
+fr\adaming\toulouse\SSN\service\ClientServiceImpl.class
 fr\adaming\toulouse\SSN\model\LigneCommande.class
 fr\adaming\toulouse\SSN\model\Produit.class
+fr\adaming\toulouse\SSN\Dao\IClientDao.class
+fr\adaming\toulouse\SSN\model\Panier.class
+fr\adaming\toulouse\SSN\model\Categorie.class
