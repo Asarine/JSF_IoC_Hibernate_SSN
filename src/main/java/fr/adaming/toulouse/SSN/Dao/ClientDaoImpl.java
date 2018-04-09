@@ -66,8 +66,14 @@ public class ClientDaoImpl implements IClientDao {
 
 	@Override
 	public int deleteClient(Client cl) {
-		// TODO Auto-generated method stub
-		return 0;
+		//Requête HQL
+		String req="DELETE Client cl WHERE cl.idClient=:pId";
+		//Ouvrir la session
+		s=sf.getCurrentSession();
+		//Création du query
+		Query query=s.createQuery(req);
+		query.setParameter("pId", cl.getIdClient());
+		return query.executeUpdate();
 	}
 
 }

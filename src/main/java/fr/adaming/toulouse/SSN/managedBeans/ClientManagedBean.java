@@ -112,4 +112,20 @@ public class ClientManagedBean implements Serializable {
 			return "modifClient";
 		}
 	}
+	
+	public String suppClient(){
+		//On récupère le client de la session
+		Client clIn=(Client) maSession.getAttribute("clientSession");
+		//Le client est supprimé
+		int verif=clientService.deleteClient(clIn);
+		if (verif!=0){
+			//Message de confirmation
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Le client a bien été supprimé."));
+			return "accueil";
+		}else{
+			//Message d'erreur
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Le client n'a pas été supprimé."));
+			return "accueilClient";
+		}
+	}
 }
