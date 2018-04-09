@@ -36,8 +36,11 @@ public class ClientDaoImpl implements IClientDao {
 
 	@Override
 	public Client addClient(Client cl) {
-		// TODO Auto-generated method stub
-		return null;
+		//Ouverture de la session
+		s=sf.getCurrentSession();
+		//Ajout du client à la base de données
+		s.save(cl);
+		return cl;
 	}
 
 	@Override

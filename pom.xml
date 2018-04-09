@@ -8,7 +8,7 @@
 
 	<dependencies>
 
-	<!-- Libraries du JSF -->
+		<!-- Libraries du JSF -->
 
 		<!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-api -->
 		<dependency>
@@ -31,9 +31,9 @@
 			<version>6.0</version>
 		</dependency>
 
-	<!-- Libraries du Spring -->
+		<!-- Libraries du Spring -->
 
-	<!-- Spring IoC -->
+		<!-- Spring IoC -->
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
 		<dependency>
@@ -57,7 +57,7 @@
 			<version>4.1.9.RELEASE</version>
 		</dependency>
 
-	<!-- ORM -->
+		<!-- ORM -->
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 		<dependency>
@@ -75,7 +75,7 @@
 			<version>4.1.9.RELEASE</version>
 		</dependency>
 
-	<!-- WEB -->
+		<!-- WEB -->
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
 		<dependency>
@@ -85,7 +85,7 @@
 		</dependency>
 
 
-	<!-- Hibernate -->
+		<!-- Hibernate -->
 
 		<!-- Core -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
@@ -128,7 +128,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.38</version>
 		</dependency>
-		
+
 		<!-- Servlet Api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -136,6 +136,28 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- javax.mail-api -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+
+		<!-- activation -->
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<!-- itextpdf -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.4.0</version>
+		</dependency>
+
 
 	</dependencies>
 

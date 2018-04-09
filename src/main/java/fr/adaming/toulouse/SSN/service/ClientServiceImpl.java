@@ -26,8 +26,9 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public Client addClient(Client cl) {
-		// TODO Auto-generated method stub
-		return null;
+		String password=GenerationMotDePasse.genererMotDePasse();
+		cl.setMdp(password);
+		return clientDao.addClient(cl);
 	}
 
 	@Override
