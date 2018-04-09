@@ -14,7 +14,7 @@
 	<!-- Etape 1: localisation du fichier de confic du conteet spring IoC -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/application-context.xml</param-value>
+		<param-value>/WEB-INF/context-application.xml</param-value>
 	</context-param>
 
 	<!-- Etape 2: Declaration de la servler unique duJSF -->

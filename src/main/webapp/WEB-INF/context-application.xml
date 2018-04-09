@@ -12,7 +12,7 @@
 
 	<!-- Activation de la detection auto des composants via les annotations 
 		@Component @Repository (couche DAO) @Controller -->
-	<context:component-scan base-package="fr.adaming.toulouse" />
+	<context:component-scan base-package="fr.adaming.toulouse.SSN" />
 
 	<!-- localiser le fichier ds-info.properties -->
 	<context:property-placeholder location="classpath*:configuration.properties" />
