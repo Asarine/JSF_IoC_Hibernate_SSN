@@ -113,6 +113,7 @@ public class ClientManagedBean implements Serializable {
 		}
 	}
 	
+	
 	public String suppClient(){
 		//On récupère le client de la session
 		Client clIn=(Client) maSession.getAttribute("clientSession");
