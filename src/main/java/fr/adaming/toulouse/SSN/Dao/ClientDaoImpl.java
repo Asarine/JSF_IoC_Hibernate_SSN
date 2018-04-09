@@ -29,6 +29,7 @@ public class ClientDaoImpl implements IClientDao {
 		s=sf.getCurrentSession();
 		//Création du query
 		Query query=s.createQuery(req);
+		//Passage des paramètres
 		query.setParameter("pEmail", cl.getEmail());
 		query.setParameter("pMdp", cl.getMdp());
 		return (Client) query.uniqueResult();
@@ -45,8 +46,22 @@ public class ClientDaoImpl implements IClientDao {
 
 	@Override
 	public int modifClient(Client cl) {
-		// TODO Auto-generated method stub
-		return 0;
+		//Requête HQL
+		String req="UPDATE Client cl SET cl.nomClient=:pNom, cl.adresse=:pAdresse, cl.codePostal=:pCodepost, cl.ville=:pVille, cl.email=:pMail, cl.tel=:pTel, cl.mdp=:pMdp WHERE cl.idClient=:pId";
+		//Ouverture de la session
+		s=sf.getCurrentSession();
+		//Création du Query
+		Query query=s.createQuery(req);
+		//Passage des paramètres
+		query.setParameter("pNom", cl.getNomClient());
+		query.setParameter("pAdresse", cl.getAdresse());
+		query.setParameter("pCodepost", cl.getCodePostal());
+		query.setParameter("pVille", cl.getVille());
+		query.setParameter("pMail", cl.getEmail());
+		query.setParameter("pTel", cl.getTel());
+		query.setParameter("pMdp", cl.getMdp());
+		query.setParameter("pId", cl.getIdClient());
+		return query.executeUpdate();
 	}
 
 	@Override

@@ -26,6 +26,7 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public Client addClient(Client cl) {
+		//Générer un mot de passe aléatoire et l'attribuer au nouveau client
 		String password=GenerationMotDePasse.genererMotDePasse();
 		cl.setMdp(password);
 		return clientDao.addClient(cl);
@@ -33,8 +34,7 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public int modifClient(Client cl) {
-		// TODO Auto-generated method stub
-		return 0;
+		return clientDao.modifClient(cl);
 	}
 
 	@Override

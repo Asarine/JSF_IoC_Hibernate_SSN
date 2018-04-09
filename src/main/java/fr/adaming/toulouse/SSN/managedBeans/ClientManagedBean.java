@@ -63,11 +63,14 @@ public class ClientManagedBean implements Serializable {
 
 	public String seConnecter() {
 		try {
-			this.client = clientService.isExist(client);
+			
+			//Vérifier que le client est bien dans la base de données
+			this.client = clientService.isExist(this.client);
 			// Ajouter le client à la session
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("clientSession", client);
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("clientSession", this.client);
 			return "accueilClient";
 		} catch (Exception ex) {
+			//Création d'un message d'erreur si le client n'est pas trouvé
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage("Identifiant ou mot de passe incorrect"));
 		}
@@ -75,16 +78,38 @@ public class ClientManagedBean implements Serializable {
 	}
 
 	public String ajoutClient() {
+		//Ajout du client à la base de données
 		Client clAjout = clientService.addClient(this.client);
 		if (clAjout.getIdClient() != 0) {
 			this.client = clAjout;
+			//Envoi d'un mail de confirmation
 			EnvoyerMail.envoyerMessageAjout(this.client);
+			//Création d'un message à afficher pour prévenir le client qu'il recoit son mot de passe
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage("Votre mot de passe vous a été envoyé par mail"));
 			return "seconnecterClient";
 		} else {
+			//Création d'un message d'erreur si le client n'est pas trouvé
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("L'ajout n'a pas été effectué."));
 			return "ajoutClient";
+		}
+	}
+	
+	public String modifierClient(){
+		//On récupère le client de la session afin d'avoir son Id (nécessaire pour la dao)
+		Client clIn=(Client) maSession.getAttribute("clientSession");
+		//Attribuer l'id du client de la session au client à modifier
+		this.client.setIdClient(clIn.getIdClient());
+		//Modifier le client
+		int verif=clientService.modifClient(this.client);
+		if (verif!=0){
+			//Modifier le client dans la session
+			maSession.setAttribute("clientSession", this.client);
+			return "accueilClient";
+		}else{
+			//Création d'un message d'erreur
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Les modifications n'ont pas été effectuées."));
+			return "modifClient";
 		}
 	}
 }
