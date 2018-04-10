@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+Nom de la categorie: <h:inputText
+				value="#{catMB.categorie.nomCategorie}" />
+			ID categorie: <h:inputText value="#{catMB.categorie.idCategorie}" />
+			Description: <h:inputText value="#{catMB.categorie.description}" />
+			Image: <p:fileUpload value="#{catMB.uf}" mode="simple"
+				skinSimple="true" />
+			<h:commandButton value="Modifier" action="#{catMB.modifierCategorie}"
+				styleClass="boutons" />
+		</h:panelGrid>
+	</h:form>
+	<h:messages style="color:crimson" />
+
+</h:body>
+</html>

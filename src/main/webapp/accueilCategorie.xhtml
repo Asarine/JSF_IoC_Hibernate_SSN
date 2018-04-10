@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:button value="Ajouter" outcome="ajouterCategorie.xhtml"
+				styleClass="boutons" />
+			<h:button value="Modifier"
+				outcome="modifierCategorie.xhtml" styleClass="boutons" />
+			<h:button value="Supprimer"
+				outcome="supprimerCategorie.xhtml" styleClass="boutons" />
+		</h:panelGrid>
+	</h:form>
+	<h:form>
+		<p:dataTable var="cat" value="#{catMB.listeCat}">
+			<f:facet name="header">Liste des categories</f:facet>
+			<p:column headerText="Id">
+				<h:outputText value="#{cat.idCategorie}" />
+			</p:column>
+
+			<p:column headerText="Nom">
+				<h:outputText value="#{cat.nomCategorie}" />
+			</p:column>
+
+			<p:column headerText="Description">
+				<h:outputText value="#{cat.description}" />
+			</p:column>
+
+			<p:column headerText="Photo de categorie">
+				<h:graphicImage value="#{cat.image}" style="height:166px;width:250px"/>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>
