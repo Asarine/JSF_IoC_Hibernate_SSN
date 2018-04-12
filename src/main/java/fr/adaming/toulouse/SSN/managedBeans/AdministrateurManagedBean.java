@@ -121,5 +121,7 @@ public class AdministrateurManagedBean {
 	public void setPr(Produit pr) {
 		this.pr = pr;
 	}
+	
+	///////
 
 }
