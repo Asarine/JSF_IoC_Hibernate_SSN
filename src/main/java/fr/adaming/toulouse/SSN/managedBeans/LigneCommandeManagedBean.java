@@ -102,6 +102,10 @@ public class LigneCommandeManagedBean {
 			return "ajouterLigneCommande";
 
 		}
+		
+		
+		
+		
 
 	}
 

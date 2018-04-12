@@ -1,13 +1,20 @@
+<<<<<<< HEAD
 fr\adaming\toulouse\SSN\Dao\ILigneCommandeDao.class
+=======
+>>>>>>> branch 'master' of https://github.com/Asarine/JSF_IoC_Hibernate_SSN.git
 fr\adaming\toulouse\SSN\Dao\CategorieDaoImpl.class
 fr\adaming\toulouse\SSN\managedBeans\ClientManagedBean.class
 fr\adaming\toulouse\SSN\service\EnvoyerMail.class
+<<<<<<< HEAD
 fr\adaming\toulouse\SSN\Dao\IProduitDao.class
+=======
+>>>>>>> branch 'master' of https://github.com/Asarine/JSF_IoC_Hibernate_SSN.git
 fr\adaming\toulouse\SSN\Dao\ClientDaoImpl.class
 fr\adaming\toulouse\SSN\service\EnvoyerMail$1.class
 fr\adaming\toulouse\SSN\service\IClientService.class
 fr\adaming\toulouse\SSN\service\ClientServiceImpl.class
 fr\adaming\toulouse\SSN\service\CommandeServiceImpl.class
+<<<<<<< HEAD
 fr\adaming\toulouse\SSN\Dao\IAdministateurDao.class
 fr\adaming\toulouse\SSN\Dao\IClientDao.class
 fr\adaming\toulouse\SSN\service\ICommandeService.class
@@ -24,17 +31,37 @@ fr\adaming\toulouse\SSN\managedBeans\CommandeManagedBean.class
 fr\adaming\toulouse\SSN\model\Administrateur.class
 fr\adaming\toulouse\SSN\managedBeans\LigneCommandeManagedBean.class
 fr\adaming\toulouse\SSN\service\IProduitService.class
+=======
+fr\adaming\toulouse\SSN\Dao\IClientDao.class
+fr\adaming\toulouse\SSN\service\ICommandeService.class
+fr\adaming\toulouse\SSN\model\Categorie.class
+fr\adaming\toulouse\SSN\service\ICategorieService.class
+fr\adaming\toulouse\SSN\model\Commande.class
+fr\adaming\toulouse\SSN\model\Client.class
+fr\adaming\toulouse\SSN\managedBeans\CommandeManagedBean.class
+fr\adaming\toulouse\SSN\model\Administrateur.class
+>>>>>>> branch 'master' of https://github.com/Asarine/JSF_IoC_Hibernate_SSN.git
 fr\adaming\toulouse\SSN\service\CategorieServiceImpl.class
 fr\adaming\toulouse\SSN\model\LigneCommande.class
 fr\adaming\toulouse\SSN\model\Produit.class
+<<<<<<< HEAD
 fr\adaming\toulouse\SSN\service\ProduitServiceImpl.class
+=======
+>>>>>>> branch 'master' of https://github.com/Asarine/JSF_IoC_Hibernate_SSN.git
 fr\adaming\toulouse\SSN\Dao\ICategorieDao.class
 fr\adaming\toulouse\SSN\managedBeans\CategorieManagedBean.class
 fr\adaming\toulouse\SSN\service\EnvoyerMail$2.class
+<<<<<<< HEAD
 fr\adaming\toulouse\SSN\Dao\LigneCommandeDao.class
 fr\adaming\toulouse\SSN\Dao\ProduitDaoImpl.class
+=======
+fr\adaming\toulouse\SSN\Dao\ProduitDaoImp.class
+>>>>>>> branch 'master' of https://github.com/Asarine/JSF_IoC_Hibernate_SSN.git
 fr\adaming\toulouse\SSN\model\Panier.class
 fr\adaming\toulouse\SSN\Dao\CommandeDaoImpl.class
 fr\adaming\toulouse\SSN\service\GenerationMotDePasse.class
+<<<<<<< HEAD
 fr\adaming\toulouse\SSN\managedBeans\ProduitManagedBean.class
+=======
+>>>>>>> branch 'master' of https://github.com/Asarine/JSF_IoC_Hibernate_SSN.git
 fr\adaming\toulouse\SSN\Dao\ICommandeDao.class

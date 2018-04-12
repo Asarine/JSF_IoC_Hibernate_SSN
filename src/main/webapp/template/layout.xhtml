@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>LayOut</title>
+	<h:outputStylesheet library="css" name="monStyle.css" />
+</h:head>
+<h:body>
+	<div class="headerByDef">
+		<!-- Définir la zone où mon header doit être inclus -->
+		<ui:insert name="header">
+			<!-- Inclure concrètement le header -->
+			<ui:include src="header.xhtml"></ui:include>
+		</ui:insert>
+	</div>
+	<div class="bodyByDef">
+		<ui:insert name="body">
+			<ui:include src="corps.xhtml"></ui:include>
+		</ui:insert>
+	</div>
+	<div class="footerByDef">
+		<ui:insert>
+		<ui:include src="footer.xhtml"></ui:include>
+		</ui:insert>
+	</div>
+</h:body>
+</html>
