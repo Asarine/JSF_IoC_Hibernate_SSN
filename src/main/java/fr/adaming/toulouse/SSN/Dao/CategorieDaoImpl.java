@@ -2,6 +2,7 @@ package fr.adaming.toulouse.SSN.Dao;
 
 import java.util.List;
 
+import org.apache.commons.codec.binary.Base64;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -28,7 +29,7 @@ public class CategorieDaoImpl implements ICategorieDao {
 	@Override
 	public List<Categorie> getAllCategoriesDao() {
 		// requete hql
-		String req = "SELECT cat FROM Categorie cat ";
+		String req = "FROM Categorie";
 
 		// ouvrir une session
 		s = sf.getCurrentSession();
@@ -36,7 +37,12 @@ public class CategorieDaoImpl implements ICategorieDao {
 		// recuperer le query
 		q = s.createQuery(req);
 
-		return q.list();
+		// chargement des photos
+		List<Categorie> listeOut = q.list();
+		for (Categorie cat : listeOut) {
+			cat.setImage("data:image/png;base64," + Base64.encodeBase64String(cat.getPhoto()));
+		}
+		return listeOut;
 
 	}
 
@@ -69,7 +75,7 @@ public class CategorieDaoImpl implements ICategorieDao {
 
 	@Override
 	public int deleteCategorieDao(Categorie cat) {
-		String req = "DELETE FROM Categorie cat WHERE cat.idCategorie=:pId";
+		String req = "DELETE Categorie cat WHERE cat.idCategorie=:pId";
 		// ouvrir une session
 		s = sf.getCurrentSession();
 
@@ -84,13 +90,16 @@ public class CategorieDaoImpl implements ICategorieDao {
 	@Override
 	public Categorie getCategorieById(Categorie cat) {
 		// requete hql
-		String req = "SELECT cat FROM Categorie cat ";
+		String req = "FROM Categorie cat WHERE cat.idCategorie=:pId";
 
 		// ouvrir une session
 		s = sf.getCurrentSession();
 
 		// Récupérer le query
 		Query query = s.createQuery(req);
+
+		// passage des params
+		query.setParameter("pId", cat.getIdCategorie());
 
 		return (Categorie) query.uniqueResult();
 	}

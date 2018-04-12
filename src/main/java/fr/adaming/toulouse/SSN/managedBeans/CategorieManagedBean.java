@@ -16,17 +16,16 @@ import org.primefaces.model.UploadedFile;
 import fr.adaming.toulouse.SSN.model.Categorie;
 import fr.adaming.toulouse.SSN.service.ICategorieService;
 
-@ManagedBean(name = "catMB")
+@ManagedBean(name="catMB")
 @RequestScoped
 public class CategorieManagedBean implements Serializable {
 	// transformation de l'association UML en Java
-	@ManagedProperty(value = "#{catService}")
+	@ManagedProperty(value="#{catService}")
 	private ICategorieService catServ;
 
-	// setter pour l'injection de dependance
-	public void setCategorieService(ICategorieService categorieService) {
-		this.catServ = categorieService;
 
+	public void setCatServ(ICategorieService catServ) {
+		this.catServ = catServ;
 	}
 
 	// attributs pour la vue
@@ -82,11 +81,11 @@ public class CategorieManagedBean implements Serializable {
 		// ajouter la photo dans l'objet a ajouter
 		categorie.setPhoto(this.uf.getContents());
 
-		Categorie catOut = catServ.addCategorieService(categorie);
+		Categorie catOut = catServ.addCategorieService(this.categorie);
 
 		if (catOut.getIdCategorie() != 0) {
 			// recuperer la nouvelle liste
-			List<Categorie> liste = catServ.getAllCategoriesService();
+			List<Categorie> liste=catServ.getAllCategoriesService();
 			// mettre a jour
 			this.listeCat = liste;
 
@@ -100,11 +99,11 @@ public class CategorieManagedBean implements Serializable {
 	public String modifierCategorie() {
 		categorie.setPhoto(this.uf.getContents());
 		
-		int verif = catServ.updateCategorieService(categorie);
+		int verif=catServ.updateCategorieService(this.categorie);
 		
 		if (verif != 0) {
 			// recuperer la liste de clients
-			List<Categorie> liste = catServ.getAllCategoriesService();
+			List<Categorie> liste= catServ.getAllCategoriesService();
 
 			// metre a jour la liste dans la liste
 			this.listeCat = liste;
@@ -119,7 +118,7 @@ public class CategorieManagedBean implements Serializable {
 	public String supprimerCategorie() {
 		int verif = catServ.deleteCategorieService(categorie);
 		if (verif != 0) {
-			List<Categorie> liste = catServ.getAllCategoriesService();
+			List<Categorie> liste= catServ.getAllCategoriesService();
 			this.listeCat = liste;
 			return "accueilCategorie";
 		} else {

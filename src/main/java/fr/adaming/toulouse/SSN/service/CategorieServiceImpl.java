@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.toulouse.SSN.Dao.ICategorieDao;
+import fr.adaming.toulouse.SSN.Dao.IClientDao;
 import fr.adaming.toulouse.SSN.model.Categorie;
 
 @Service("catService")
@@ -15,6 +16,13 @@ public class CategorieServiceImpl implements ICategorieService {
 	// Association uml en java
 	@Autowired
 	ICategorieDao categorieDao;
+	
+	//Setter pour l'injection de dépendances	
+	public void setCategorieDao(ICategorieDao categorieDao) {
+		this.categorieDao = categorieDao;
+	}
+
+	
 
 	@Override
 	public List<Categorie> getAllCategoriesService() {
@@ -46,4 +54,10 @@ public class CategorieServiceImpl implements ICategorieService {
 		return categorieDao.getCategorieById(cat);
 	}
 
+	
+
+	
+	
+	
+	
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<title></title>
+</h:head>
+ <h:body>
+ <h:form>
+<p:breadCrumb>
+			<p:menuitem value="AccueilAdmin" url="accueilAdmin.xhtml" />
+			<p:menuitem value="Categories" url="accueilCategorie.xhtml" />
+			<p:menuitem value="Produits" url="accueilProduit.xhtml" />
+
+		</p:breadCrumb>
+	</h:form>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:button value="Ajouter" outcome="ajouterProduit.xhtml" styleClass="boutons"/>
+			<h:button value="Modifier" outcome="modifierProduit.xhtml" styleClass="boutons"/>
+			<h:button value="Supprimer" outcome="supprimerProduit.xhtml" styleClass="boutons"/>
+		</h:panelGrid>
+	</h:form>
+	<h:form>
+		<p:dataTable var="prod" value="#{prodMB.listeProduits}">
+			<f:facet name="header">Liste des produits</f:facet>
+			<p:column headerText="Id">
+				<h:outputText value="#{prod.idProduit}" />
+			</p:column>
+
+			<p:column headerText="Designation">
+				<h:outputText value="#{prod.designation}" />
+			</p:column>
+
+			<p:column headerText="Description">
+				<h:outputText value="#{prod.description}" />
+			</p:column>
+			<p:column headerText="Prix">
+				<h:outputText value="#{prod.prix}" />
+			</p:column>
+
+			<p:column headerText="Quantite">
+				<h:outputText value="#{prod.quantite}" />
+			</p:column>
+
+			<p:column headerText="Id Categorie">
+				<h:outputText value="#{prod.cat.idCategorie}" />
+			</p:column>
+
+			<p:column headerText="Photo du produit">
+				<h:graphicImage value="#{prod.image}" styleClass="imagesProduits"/>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
