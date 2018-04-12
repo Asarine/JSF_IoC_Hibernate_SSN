@@ -1,0 +1,104 @@
+
+body{
+	margin:0 auto;
+	padding:1em;
+	width:1870px;
+	
+	
+}
+.headerByDef{
+	
+	height:190px;
+	background-color:white;
+	background-image: url("#{resource['images:Bordure.png']}");
+	background-repeat:repeat-x;
+	background-position:800px 90px;	
+	
+}
+
+.logo{
+	position:absolute;
+	left:450px;
+}
+
+.cherche{
+	position : absolute;
+	left:1200px;
+}
+
+.btnPanier{
+	position : absolute;
+	left:900px;
+	top:80px;
+}
+
+.bodyByDef{
+	height:1000px;
+	width:1880px;
+	background-image:url("#{resource['images:font-body.png']}");
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
+.footerByDef{
+	height:250px;
+	background-color:white;
+	background-image: url("#{resource['images:BordureFooter.png']}");
+	background-repeat:repeat-x;
+	position:relative;
+	color:rgb(56,87,14);
+	font-family:"Lucida Sans Unicode";
+	
+	
+}
+
+.engagements{
+	font-size: 36px;
+	font-weight:bold;
+	position:absolute;
+	left:780px;
+	top:25px;
+	
+}
+
+.meilleursPrix{
+	font-size: 26px;
+	font-weight:bold;
+	position:absolute;
+	left:200px;
+	top:170px;
+}
+
+.retraitMag{
+	font-size: 26px;
+	font-weight:bold;
+	position:absolute;
+	left:620px;
+	top:170px;
+}
+
+.satisfClient{
+	font-size: 26px;
+	font-weight:bold;
+	position:absolute;
+	left:1000px;
+	top:170px;
+}
+
+.service{
+	font-size: 26px;
+	font-weight:bold;
+	position:absolute;
+	left:1420px;
+	top:170px;
+}
+
+.argumentPrix{
+	width:300px;
+	text-align:center;
+	position:absolute;
+	left:200px;
+	top:210px;
+
+}
