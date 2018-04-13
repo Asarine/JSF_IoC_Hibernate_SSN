@@ -28,7 +28,7 @@ public class CommandeDaoImpl implements ICommandeDao {
 
 	@Override
 	public List<Commande> getAllCommandesDao(Client cl) {
-		String req = "SELECT com FROM Commande as com where com.client.id=:pId";
+		String req = "FROM Commande as com where com.cl.id=:pId";
 		// ouvrir une session
 		s = sf.getCurrentSession();
 		// recuperer le query

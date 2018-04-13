@@ -16,26 +16,34 @@
 		<h:graphicImage styleClass="logo"
 			url="resources/images/LogoEcommerce.png"
 			style="width:200px;height:150px" />
+
 		<div class="cherche">
-		<h:form>
-			<p:commandButton type="button" style="display:block"
-				icon="ui-icon-search">
-				<p:effect type="drop" event="click" for="barre">
-					<f:param name="mode" value="'show'" />
-				</p:effect>
-				<p:effect type="drop" event="click" for="bouton">
-					<f:param name="mode" value="'show'" />
-				</p:effect>
-			</p:commandButton>
-			
-			<h:inputText id="barre" placeholder="Entrer un mot clé"
-				style="display:none" value="#{prodMB.motcle}"/>
-			<br />
-			<h:commandButton id="bouton" value="Chercher" style="display:none" action="#{prodMB.chercherParMotCle}"></h:commandButton>
+			<h:form>
+				<p:commandButton type="button" style="display:block"
+					icon="ui-icon-search">
+					<p:effect type="drop" event="click" for="barre">
+						<f:param name="mode" value="'show'" />
+					</p:effect>
+					<p:effect type="drop" event="click" for="bouton">
+						<f:param name="mode" value="'show'" />
+					</p:effect>
+				</p:commandButton>
+
+				<h:inputText id="barre" placeholder="Entrer un mot clé"
+					style="display:none" value="#{prodMB.motcle}" />
+				<br />
+
+				<h:commandButton id="bouton" value="Chercher" style="display:none"
+					action="#{prodMB.chercherParMotCle}"></h:commandButton>
 			</h:form>
 		</div>
 		<div class="btnPanier">
-		<h:graphicImage url="/resources/images/image-panier.png" style="width:60px;height:60px"/>
+			<h:form>
+				<h:commandLink action="monPanier">
+					<h:graphicImage url="/resources/images/image-panier.png"
+						style="width:60px;height:60px" />
+				</h:commandLink>
+			</h:form>
 		</div>
 	</ui:composition>
 

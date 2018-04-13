@@ -7,7 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ReferencedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -22,7 +21,7 @@ public class CommandeManagedBean implements Serializable {
 
 	// transformation l'association uml en java
 
-	@ManagedProperty(value = "#{commandeService}")
+	@ManagedProperty(value = "#{comService}")
 	ICommandeService commandeService;
 
 	// setter pour l'injectin de dependance
@@ -46,7 +45,10 @@ public class CommandeManagedBean implements Serializable {
 		this.maSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 
 		// recuperer le client stocker dans la session
-		this.client = (Client) maSession.getAttribute("clientsession");
+		this.client = (Client) maSession.getAttribute("clientSession");
+
+		// Récupérer la liste de commandes
+		this.listeCommandes = commandeService.getAllCommandesService(client);
 
 	}
 
@@ -87,49 +89,43 @@ public class CommandeManagedBean implements Serializable {
 	}
 
 	// methodes metier
-	
-	public String ajouterCommande(){
-		Commande comAjout=commandeService.addCommande(this.commande,this.client);
-		 if(comAjout.getIdCommande()!=0){
-		//recuperer la liste de commandes 
-			List<Commande> liste=commandeService.getAllCommandesService(this.client);
-		// metre a jour la liste dans la session
-			this.listeCommandes=liste;
-				return"accueilCommande";
-			} else {
 
-				// le message en cas echec
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("l'ajout de client est echoue"));
-				return "ajouterCommande";
-			
+	public String ajouterCommande() {
+		Commande comAjout = commandeService.addCommande(this.commande, this.client);
+		if (comAjout.getIdCommande() != 0) {
+			// recuperer la liste de commandes
+			List<Commande> liste = commandeService.getAllCommandesService(this.client);
+			// metre a jour la liste dans la session
+			this.listeCommandes = liste;
+			return "ajouterCommande";
+		} else {
+
+			// le message en cas echec
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("l'ajout de commande est echoue"));
+			return "ajouterCommande";
+
 		}
+	}
+
+	public String deleteCommande() {
+
+		int verif = commandeService.deleteCommande(this.commande);
+		if (verif != 0) {
+			// recupere la lsite de la commandes
+
+			List<Commande> liste = commandeService.getAllCommandesService(this.client);
+
+			// metre a jour la liste dans la session
+			this.listeCommandes = liste;
+			return "accueilCommande";
+		} else {
+
+			// le message en cas echec
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("l'ajout de client est echoue"));
+			return "supprimerCommande";
+
 		}
-		 public String deleteCommande(){
-			
-
-		 int verif=commandeService.deleteCommande(this.commande);
-		 if(verif !=0){
-		 //recupere la lsite de la commandes
-		 
-		List<Commande> liste=commandeService.getAllCommandesService(this.client); 
-
-		// metre a jour la liste dans la session
-			this.listeCommandes=liste;
-				return"accueilCommande";
-			} else {
-
-				// le message en cas echec
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("l'ajout de client est echoue"));
-				return "supprimerCommande";
-			 
-		 }
 
 	}
-	
-	
-	
-	
-	
-	
 
 }

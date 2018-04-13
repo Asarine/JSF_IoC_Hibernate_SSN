@@ -7,12 +7,99 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-<title>Accueil</title>
+	<title>Accueil</title>
 </h:head>
 <h:body>
-Accueil client
-<h:form>
-<h:commandLink value="Modifier votre compte" action="modifClient"/>
-</h:form>
-</h:body>
+		<ui:composition template="/template/layout.xhtml">
+			<ui:define name="body">
+				<div class="body">
+					<h:form>
+						<p:commandButton value="Modifier votre compte" action="modifClient" />
+						<p:commandButton value="Mes commandes" action="mesCommandes"/>
+					</h:form>
+					<h:form id="form">
+						<p:carousel value="#{catMB.listeCat}" headerText="Catégories"
+							var="cat" itemStyle="text-align:center" responsive="true"
+							style="width:80%;left:200px;">
+							<p:panelGrid columns="2" style="width:100%;margin:10px 0px"
+								columnClasses="label,value" layout="grid"
+								styleClass="ui-panelgrid-blank">
+								<f:facet name="header">
+									<h:graphicImage value="#{cat.image}"
+										style="height:100px;width:100px" />
+								</f:facet>
+
+								<h:outputText value="Nom" />
+								<h:outputText value="#{cat.nomCategorie}" />
+
+								<h:outputText value="Description" />
+								<h:outputText value="#{cat.description}" />
+
+
+							</p:panelGrid>
+						</p:carousel>
+					</h:form>
+					<br />
+					<h:form id="form3">
+						<p:dataGrid var="prod" value="#{prodMB.listeProduits}" columns="3"
+							layout="grid" rows="6" paginator="true" id="produits"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+
+							<f:facet name="header">
+            Produits disponibles
+        </f:facet>
+
+							<p:panel header="#{prod.idProduit}" style="text-align:center">
+								<h:panelGrid columns="1" style="width:100%">
+									<h:graphicImage value="#{prod.image}"
+										style="height:100px;width:100px" />
+
+									<h:outputText value="#{prod.designation}"
+										style="height:100px;width:100px" />
+
+									<p:commandLink update=":form3:prodDetail"
+										oncomplete="PF('prodDialog').show()">
+										<h:outputText styleClass="ui-icon ui-icon-search"
+											style="margin:0 auto;" />
+										<f:setPropertyActionListener value="#{prod}"
+											target="#{prodMB.produit}" />
+									</p:commandLink>
+								</h:panelGrid>
+							</p:panel>
+
+						</p:dataGrid>
+
+						<p:dialog header="Information" widgetVar="prodDialog" modal="true"
+							showEffect="fade" hideEffect="fade" resizable="false">
+							<p:outputPanel id="prodDetail" style="text-align:center;">
+								<p:panelGrid columns="2" rendered="#{not empty prodMB.produit}"
+									columnClasses="label,value">
+									<f:facet name="header">
+										<h:graphicImage value="#{prodMB.produit.image}"
+											style="height:100px;width:100px" />
+									</f:facet>
+
+									<h:outputText value="Id:" />
+									<h:outputText value="#{prodMB.produit.idProduit}" />
+
+									<h:outputText value="Nom:" />
+									<h:outputText value="#{prodMB.produit.designation}" />
+
+									<h:outputText value="Description:" />
+									<h:outputText value="#{prodMB.produit.description}" />
+
+									<h:outputText value="Quantité disponible:" />
+									<h:outputText value="#{prodMB.produit.quantite}" />
+
+									<h:outputText value="Prix:" />
+									<h:outputText value="#{prodMB.produit.prix}" />
+								</p:panelGrid>
+							</p:outputPanel>
+						</p:dialog>
+					</h:form>
+				</div>
+			</ui:define>
+		</ui:composition>
+
+	</h:body>
 </html>

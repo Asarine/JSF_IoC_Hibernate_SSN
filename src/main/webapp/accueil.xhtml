@@ -15,6 +15,7 @@
 <h:body>
 	<ui:composition template="/template/layout.xhtml">
 		<ui:define name="body">
+		<div class="body">
 			<h:form>
 				<h:panelGrid columns="2">
 		Mail : <h:inputText value="#{clMB.client.email}" />
@@ -94,11 +95,7 @@
         </p:outputPanel>
     </p:dialog>
 </h:form>
-<h:form>
-<h:inputText id="barre" placeholder="Entrer un mot clé" value="#{prodMB.motcle}"/>
-			<br />
-			<h:commandButton id="bouton" value="Chercher" actionListener="#{prodMB.chercherParMotCle}"></h:commandButton>
-			</h:form>
+</div>
 		</ui:define>
 	</ui:composition>
 </h:body>
