@@ -7,7 +7,7 @@ import fr.adaming.toulouse.SSN.model.Produit;
 
 public interface ILigneCommandeDao {
 	
-	public List<LigneCommande> getAllLigneCommandesDao(Produit prod);
+	public List<LigneCommande> getAllLigneCommandesDao();
 	public LigneCommande addLigneCommande(LigneCommande lcom);
 	public int deleteLigneCommande(LigneCommande lcom);
 	

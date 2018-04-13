@@ -1,5 +1,6 @@
 package fr.adaming.toulouse.SSN.managedBeans;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -16,7 +17,7 @@ import fr.adaming.toulouse.SSN.service.ILigneCommandeSerivice;
 
 @ManagedBean(name="lcomMB")
 @RequestScoped
-public class LigneCommandeManagedBean {
+public class LigneCommandeManagedBean implements Serializable{
 
 	//transformation de l'association uml e, java 
 	
@@ -27,6 +28,8 @@ public class LigneCommandeManagedBean {
 		this.lignecommandeService = lignecommandeService;
 	}
 	//attributs pour la vue 
+	
+	
 	private LigneCommande lignecommande;
 	private Produit produit;
 	private HttpSession maSession;
@@ -38,13 +41,15 @@ public class LigneCommandeManagedBean {
 	//constructuer vide
 	public LigneCommandeManagedBean() {
 		super();
+		this.lignecommande=new LigneCommande();
 	}
 	
 	@PostConstruct
 	public void init(){
 		
 		this.maSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		this.produit = (Produit) maSession.getAttribute("lignecommandesession");
+		//this.produit = (Produit) maSession.getAttribute("lignecommandesession");
+		listeligneCommandes=lignecommandeService.getAllLigneCommandesService();
 	}
 
 	// get et set 
@@ -88,10 +93,10 @@ public class LigneCommandeManagedBean {
 	
 	
 	public String ajouterLigneCommande() {
-	LigneCommande lcomAjout = lignecommandeService.addLigneCommandeService(this.lignecommande, produit);
+	LigneCommande lcomAjout = lignecommandeService.addLigneCommandeService(this.lignecommande);
 		if (lcomAjout.getIdLComm() != 0) {
 			// recuperre la liste de commandes
-			List<LigneCommande> liste = lignecommandeService.getAllLigneCommandesService(this.produit);
+			List<LigneCommande> liste = lignecommandeService.getAllLigneCommandesService();
 			// mettre a jour la liste
 			this.listeligneCommandes = liste;
 			return "ligneCommande";
@@ -110,9 +115,9 @@ public class LigneCommandeManagedBean {
 	}
 
 	public String deleteLigneCommande() {
-		int verif = lignecommandeService.deleteLigneCommandeService(this.lignecommande, this.produit);
+		int verif = lignecommandeService.deleteLigneCommandeService(this.lignecommande);
 		if (verif != 0) {
-		List<LigneCommande> liste = lignecommandeService.getAllLigneCommandesService(this.produit);
+		List<LigneCommande> liste = lignecommandeService.getAllLigneCommandesService();
 			// mettre a jour la liste
 			this.listeligneCommandes = liste;
 			return "ligneCommande";

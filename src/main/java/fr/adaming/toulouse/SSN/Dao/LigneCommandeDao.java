@@ -6,10 +6,12 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import fr.adaming.toulouse.SSN.model.LigneCommande;
 import fr.adaming.toulouse.SSN.model.Produit;
 
+@Repository
 public class LigneCommandeDao implements ILigneCommandeDao {
 
 	// Injection de dependance
@@ -28,16 +30,15 @@ public class LigneCommandeDao implements ILigneCommandeDao {
 	Query q;
 
 	@Override
-	public List<LigneCommande> getAllLigneCommandesDao(Produit prod) {
-		String req = "From LigneCommande where lcom where lcom.prod.id=:pId";
+	public List<LigneCommande> getAllLigneCommandesDao() {
+		String req = "From LigneCommande";
 		// ouvrir une session
 		s = sf.getCurrentSession();
 
 		// recuperer le query
 		q = s.createQuery(req);
 
-		// passage de la param
-		q.setParameter("pId", prod.getIdProduit());
+
 
 		return q.list();
 	}
@@ -57,14 +58,17 @@ public class LigneCommandeDao implements ILigneCommandeDao {
 
 	@Override
 	public int deleteLigneCommande(LigneCommande lcom) {
-		String req = "DELETE LigneCommande lc lcom.id=:pId and lcom.prod.id=:pIdProd";
+		String req = "DELETE LigneCommande lcom WHERE lcom.idLComm=:pId";
+		
+		// ouvrir une session
+		s = sf.getCurrentSession();
+
 		// récup query
 		Query query = s.createQuery(req);
 
 		// passage des params
-		q.setParameter("pId", lcom.getIdLComm());
-		q.setParameter("pIdProd",lcom.getProd().getIdProduit());
-		return q.executeUpdate();
+		query.setParameter("pId", lcom.getIdLComm());
+		return query.executeUpdate();
 	}
 
 }
