@@ -10,6 +10,11 @@
 	<title></title>
 </h:head>
 <h:body>
+	<p:breadCrumb>
+		<p:menuitem value="Categories" url="accueilCategorie.xhtml" />
+		<p:menuitem value="Produits" url="accueilProduit.xhtml" />
+
+	</p:breadCrumb>
 	<h:form>
 		<h:panelGrid columns="3">
 			<h:button value="Ajouter" outcome="ajouterCategorie.xhtml"
@@ -18,6 +23,7 @@
 				outcome="modifierCategorie.xhtml" styleClass="boutons" />
 			<h:button value="Supprimer"
 				outcome="supprimerCategorie.xhtml" styleClass="boutons" />
+				<h:button value="Afficher produits" outcome="accueilProduit.xhtml" styleClass="boutons"/>
 		</h:panelGrid>
 	</h:form>
 	<h:form>

@@ -9,12 +9,17 @@
 <h:head>
 	<title></title>
 </h:head>
+<p:breadCrumb>
+	<p:menuitem value="Categories" url="accueilCategorie.xhtml" />
+	<p:menuitem value="Produits" url="accueilProduit.xhtml" />
+
+</p:breadCrumb>
 <h:body>
 	<h:form enctype="multipart/form-data">
 		<h:panelGrid columns="2">
 Nom : <h:inputText value="#{catMB.categorie.nomCategorie}" />
 Description : <h:inputText value="#{catMB.categorie.description}" />
-Image: <p:fileUpload value="#{catMB.uf}" mode="simple" skinSimple="true"/>
+Image: <p:fileUpload value="#{catMB.uf}" mode="simple" skinSimple="true" />
 			<h:commandButton value="Ajouter" action="#{catMB.ajouterCategorie}"></h:commandButton>
 		</h:panelGrid>
 	</h:form>

@@ -10,6 +10,11 @@
 	<title></title>
 </h:head>
 <h:body>
+	<p:breadCrumb>
+		<p:menuitem value="Categories" url="accueilCategorie.xhtml" />
+		<p:menuitem value="Produits" url="accueilProduit.xhtml" />
+
+	</p:breadCrumb>
 	<h:form enctype="multipart/form-data">
 		<h:panelGrid columns="2">
 Nom de la categorie: <h:inputText
@@ -17,7 +22,7 @@ Nom de la categorie: <h:inputText
 			ID categorie: <h:inputText value="#{catMB.categorie.idCategorie}" />
 			Description: <h:inputText value="#{catMB.categorie.description}" />
 			Image: <p:fileUpload value="#{catMB.uf}" mode="simple"
-				skinSimple="true"/>
+				skinSimple="true" />
 			<p:commandButton value="Modifier" action="#{catMB.modifierCategorie}"
 				styleClass="boutons" ajax="false" />
 		</h:panelGrid>
