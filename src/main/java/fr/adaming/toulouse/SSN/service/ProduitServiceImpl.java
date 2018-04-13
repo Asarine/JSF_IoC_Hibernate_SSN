@@ -1,5 +1,6 @@
 package fr.adaming.toulouse.SSN.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,8 +81,18 @@ public class ProduitServiceImpl implements IProduitService{
 
 	@Override
 	public List<Produit> getProduitsRechService(String motCle) {
-		// TODO Auto-generated method stub
-		return null;
+		motCle.toLowerCase();
+		List<Produit> produitsCherches=new ArrayList<>();
+		List<Produit> allProduits=prodDao.getAllProduitsDao();
+		for(Produit prod:allProduits){
+			String nom=prod.getDesignation().toLowerCase();
+			String desc=prod.getDescription().toLowerCase();
+			if (nom.contains(motCle) || desc.contains(motCle)){
+				produitsCherches.add(prod);
+			}
+		}
+		
+		return produitsCherches;
 	}
 
 }

@@ -17,6 +17,11 @@
 		<param-value>/WEB-INF/context-application.xml</param-value>
 	</context-param>
 
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>ui-lightness</param-value>
+	</context-param>
+	
 	<!-- Etape 2: Declaration de la servler unique duJSF -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>

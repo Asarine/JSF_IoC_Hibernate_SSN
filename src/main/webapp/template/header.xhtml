@@ -17,6 +17,7 @@
 			url="resources/images/LogoEcommerce.png"
 			style="width:200px;height:150px" />
 		<div class="cherche">
+		<h:form>
 			<p:commandButton type="button" style="display:block"
 				icon="ui-icon-search">
 				<p:effect type="drop" event="click" for="barre">
@@ -26,10 +27,12 @@
 					<f:param name="mode" value="'show'" />
 				</p:effect>
 			</p:commandButton>
-			<p:inputText id="barre" placeholder="Entrer un mot clé"
-				style="display:none" />
+			
+			<h:inputText id="barre" placeholder="Entrer un mot clé"
+				style="display:none" value="#{prodMB.motcle}"/>
 			<br />
-			<p:commandButton id="bouton" value="Chercher" style="display:none"></p:commandButton>
+			<h:commandButton id="bouton" value="Chercher" style="display:none" action="#{prodMB.chercherParMotCle}"></h:commandButton>
+			</h:form>
 		</div>
 		<div class="btnPanier">
 		<h:graphicImage url="/resources/images/image-panier.png" style="width:60px;height:60px"/>

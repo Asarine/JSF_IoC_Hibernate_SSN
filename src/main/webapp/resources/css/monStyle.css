@@ -42,7 +42,7 @@ body{
 }
 
 .footerByDef{
-	height:250px;
+	height:300px;
 	background-color:white;
 	background-image: url("#{resource['images:BordureFooter.png']}");
 	background-repeat:repeat-x;
@@ -107,7 +107,7 @@ body{
 	width:260px;
 	text-align:center;
 	position:absolute;
-	left:620px;
+	left:615px;
 	top:210px;
 }
 
@@ -115,6 +115,14 @@ body{
 	width:260px;
 	text-align:center;
 	position:absolute;
-	left:1000px;
+	left:1015px;
+	top:210px;
+}
+
+.argumentService{
+	width:260px;
+	text-align:center;
+	position:absolute;
+	left:1380px;
 	top:210px;
 }

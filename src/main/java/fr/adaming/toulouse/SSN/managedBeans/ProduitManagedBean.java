@@ -37,6 +37,7 @@ public class ProduitManagedBean implements Serializable {
 	private List<Produit> listeProduits;
 	private Boolean indice;
 	private UploadedFile uf;
+	private String motcle;
 
 	
 	
@@ -45,6 +46,7 @@ public class ProduitManagedBean implements Serializable {
 		this.produit = new Produit();
 		this.categorie = new Categorie();
 		this.indice = false;
+		this.motcle=new String();
 	}
 	
 	@PostConstruct
@@ -109,6 +111,15 @@ public class ProduitManagedBean implements Serializable {
 		return prodService;
 	}
 	
+	
+	public String getMotcle() {
+		return motcle;
+	}
+
+	public void setMotcle(String motcle) {
+		this.motcle = motcle;
+	}
+
 	//methodes metier
 	public String ajouterProduit(){
 		//ajouter la photo dans l'objet 
@@ -170,6 +181,10 @@ public class ProduitManagedBean implements Serializable {
 	  
   }
 	
+  
+  public void chercherParMotCle(){
+		this.listeProduits=prodService.getProduitsRechService(motcle);
+	}
 	
 	   
 	
